@@ -512,7 +512,8 @@ function fixLinks(e) {
   var i;
   var imgs = e.getElementsByTagName('img');
   for (i = imgs.length - 1; i >= 0; --i) {
-    var src = imgs[i].getAttribute('src');
+    var src = imgs[i].getAttribute('data-src') ||
+              imgs[i].getAttribute('data-original');
     if (src) {
       imgs[i].setAttribute('src', fixLink(src));
     }
